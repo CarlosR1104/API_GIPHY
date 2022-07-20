@@ -5,7 +5,7 @@ export const Giphy = () => {
   const card = document.getElementById("card-grift");
   const key = "08QGeqiMazMNmunvZhmnr7TgVDB0BwQb";
   const url = "https://api.giphy.com/v1/gifs/trending?api_key=08QGeqiMazMNmunvZhmnr7TgVDB0BwQb&limit=10&rating=g";
-  const search = "https://api.giphy.com/v1/gifs/search?api_key='+api_key+'&q='+event.target.value+'&limit=10&offset=0&rating=g&lang=en";
+  const search = "https://api.giphy.com/v1/gifs/search?api_key='+key+'&q='+event.target.value+'&limit=10&offset=0&rating=g&lang=en";
   const [cards, setCards] = useState(false);
 
   /*const limit = 5;
@@ -15,15 +15,18 @@ export const Giphy = () => {
   }
 
   useEffect(() => {
-    
-      if (cards == true) {
+      
+    if (cards) {
+        document.getElementById("card-grift").innerHTML = "";
+        console.log("buscar")
         searchGif()
       }else{
+        document.getElementById("card-grift").innerHTML = "";
+        console.log("crear")
         getGrift()
         createGrift()
       }
-      
-  }, [])
+  }, [cards])
 
   const searchGif = () => {
     document.getElementById("card-grift").innerHTML = "";
@@ -39,6 +42,7 @@ export const Giphy = () => {
   }
 
   function getGrift(){
+    document.getElementById("card-grift").innerHTML = "";
     fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -63,9 +67,9 @@ export const Giphy = () => {
 
   
   return (
-    <div>
-      <h2>Api Giphy</h2>
-            <input type="url" id="input" onKeyDown={createGrift}/>
+    <div className='body'>
+      <h1 className='h1'>Api Giphy</h1>
+            <input type="url" id="input" className='input' onKeyDown={searchGif}/>
             <div id='card-grift' className='card-grift'></div>
     </div>
   )

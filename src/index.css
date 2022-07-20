@@ -1,3 +1,8 @@
+*{
+  margin: 0%;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.table-grift{
+  display: flex;
+  justify-content: space-around;
+}
+.img{
+  display: flex;
+  justify-content: space-around;
+  width: 450px;
+  height: 300px;
+  margin: 20px 0 20px 0;
+  box-shadow:  8px 0px 10px 10px rgba(167, 150, 150, 0.573)
+}
+.body{
+  background-color: rgb(20, 149, 235);
+}
+.h1{
+  color: blue;
+}
+.input{
+  width: 300px;
+  margin: 0 0 20PX 0;
 }
